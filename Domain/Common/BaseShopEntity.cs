@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopAPI.Domain
+namespace ShopAPI.Domain.Common
 {
-    public class Order
+    public class BaseShopEntity
     {
         public int Id { get; set; }
-        
     }
 }

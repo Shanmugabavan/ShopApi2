@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ShopAPI.Domain.Common;
 
-namespace ShopAPI.Domain
+namespace ShopAPI.Application.Features.ItemCRUD.Queries.GetItemsList
 {
-    public class Item : BaseShopEntity
+    public class ItemDto
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
-
     }
 }
