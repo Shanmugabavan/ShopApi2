@@ -15,5 +15,7 @@ namespace ShopAPI.Data
         }
 
         public DbSet<ShopAPI.Domain.Item> Item { get; set; } = default!;
+        public DbSet<ShopAPI.Domain.Cart> Cart { get; set; } = default!;
+        
     }
 }
