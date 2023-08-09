@@ -26,6 +26,7 @@ public static class PersistenceServiceRegistration
         services.AddScoped(typeof(IShopRepositoryGeneric<>), typeof(GenericShopRepository<>));
         services.AddScoped<IItemRepository, ItemsRepository>();
         services.AddScoped<ICartRepository, CartsRepository>();
+        services.AddScoped<IOrderRepository, OrderRepository>();
 
         return services;
     }

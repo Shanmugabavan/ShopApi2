@@ -20,6 +20,7 @@ namespace ShopAPI.Infrastructure.Persistence.DatabaseContext
 
         public DbSet<Item> Items { get; set; }
         public DbSet<Cart> Carts { get; set; }
+        public DbSet<Order> Orders { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(DbContext).Assembly);
