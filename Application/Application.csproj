@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\ItemCRUD\Command\" />
+    <Folder Include="Features\CartCRUD\Queries\" />
   </ItemGroup>
 
 </Project>

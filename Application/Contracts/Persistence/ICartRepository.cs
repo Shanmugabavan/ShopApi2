@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace ShopAPI.Application.Contracts.Persistence
 {
-    public interface IItemRepository : IShopRepositoryGeneric<Item>
+    public interface ICartRepository : IShopRepositoryGeneric<Cart>
     {
-        /*Task<Item> GetItemWithDetails(int id);*/
-        Task<List<Item>> GetItemsList();
-        Task AddItem(Item item);
+        Task CreateCart(Cart cart);
+        Task AddItemToCart(int itemId,int cartId);
     }
 }

@@ -1,5 +1,4 @@
-﻿using ShopAPI.Domain.Common;
-using ShopAPI.Domain;
+﻿using ShopAPI.Domain;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 using System;
@@ -7,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ShopAPI.Domain.Common;
 
 namespace ShopAPI.Infrastructure.Persistence.DatabaseContext
 {
@@ -19,12 +19,13 @@ namespace ShopAPI.Infrastructure.Persistence.DatabaseContext
         }
 
         public DbSet<Item> Items { get; set; }
-
+        public DbSet<Cart> Carts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(DbContext).Assembly);
             base.OnModelCreating(modelBuilder);
-        }
+
+    }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

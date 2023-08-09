@@ -25,5 +25,12 @@ namespace ShopAPI.Infrastructure.Persistence.Repositories
                .ToListAsync();
             return items;
         }
+
+        public async Task AddItem(Item item)
+        {
+            
+            _context.Items.Add(item);
+            await _context.SaveChangesAsync();
+        }
     }
 }
