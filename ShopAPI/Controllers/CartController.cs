@@ -3,6 +3,7 @@ using MediatR;
 using ShopAPI.Application.Features.ItemCRUD.Queries.GetItemsList;
 using ShopAPI.Application.Features.CartCRUD.Command.CreateCart;
 using ShopAPI.Application.Features.CartCRUD.Command.AddItemToCart;
+using ShopAPI.Application.Features.CartCRUD.Command.RemoveItemFromCart;
 
 namespace ShopAPI.Controllers;
 
@@ -31,6 +32,15 @@ public class CartController : ControllerBase
     public async Task<IActionResult> AddItemToCart(int itemId, int cartId)
     {
         var command = new AddItemToCartCommand( itemId,cartId );
+        await _mediator.Send(command);
+
+        return Ok(); // Or any other appropriate response
+    }
+
+    [HttpPost("carts/remove/{cartId}/items/{itemId}")]
+    public async Task<IActionResult> RemoveItemFromCart(int itemId, int cartId)
+    {
+        var command = new RemoveItemFromCartCommand(itemId, cartId);
         await _mediator.Send(command);
 
         return Ok(); // Or any other appropriate response

@@ -11,5 +11,6 @@ namespace ShopAPI.Application.Contracts.Persistence
     {
         Task CreateCart(Cart cart);
         Task AddItemToCart(int itemId,int cartId);
+        Task RemoveItemFromCart(int itemId, int cartId);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using ShopAPI.Application.Contracts.Persistence;
 using ShopAPI.Domain;
 using ShopAPI.Infrastructure.Persistence.DatabaseContext;
@@ -18,7 +19,7 @@ namespace ShopAPI.Infrastructure.Persistence.Repositories
 
         public async Task CreateOrder(Order order)
         {
-            /*UpdateCartStatusAndItems(order.CartId);*/
+            UpdateCartStatusAndItems(order.CartId);
 
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
@@ -27,6 +28,8 @@ namespace ShopAPI.Infrastructure.Persistence.Repositories
         public async Task UpdateCartStatusAndItems(int Id)
         {
             // Find the cart by its ID
+            string sql = "UPDATE [db_shop_clean3].[dbo].[Items] SET [Status] = 'Bought' WHERE CartId = @cartId";
+            await _context.Database.ExecuteSqlRawAsync(sql, new SqlParameter("@cartId", Id));
             List<Item> items = await _context.Items.ToListAsync();
             /*foreach (Item item in items)
             {
